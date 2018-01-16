@@ -1,0 +1,108 @@
+<!--SECTION WORK-->
+
+	<section id="section2" class="cd-section">
+		<div class="container">
+          <div class="row">
+		    <div class="box-content">
+		        <h1> WORK </h1>
+               
+                <!-- Category Filter -->
+	                <dl class="group">
+                        <dt></dt>
+		                <dd>
+			                <ul class="filter group albumFilter"> 
+				                <li class="cl-effect-11 current"><a data-hover="SHOWALL" ng-click="myFilter = null" class="active" href="">SHOWALL</a></li> 
+				                <li class="cl-effect-11"><a data-hover="MARKETING" ng-click="myFilter = {category: 'marketing'}" href="">MARKETING</a></li> 
+				                <li class="cl-effect-11"><a data-hover="BRANDING" ng-click="myFilter = {category: 'branding'}" href="">BRANDING</a></li> 
+				                <li class="cl-effect-11"><a data-hover="DESIGN" ng-click="myFilter = {category: 'design'}" href="">DESIGN</a></li> 
+				                <li class="cl-effect-11"><a data-hover="PHOTOGRAPHY" ng-click="myFilter = {category: 'photo'}" href="">PHOTOGRAPHY</a></li> 
+			                </ul> 
+		                </dd>
+	                </dl>
+                    <div class="portfolio albumContainer activegrid" ng-controller="dataImagesWork">
+	                        
+	                <ul id="product" class="nav-pills nav-stacked rectangle-list" ng-controller="dataImagesWork">
+                            <li class="col-md-4 my-gallery-animation item grid" ng-repeat="product in images_work | filter:myFilter" >
+                                <figure class="effect-oscar">
+                                    <a href=""><img ng-src="images/portfolio/{{product.src}}" alt="" /></a>                              
+                                    <figcaption>
+							                <p>{{product.description}}</p>
+                                            <a href="partials/{{product.url_details}}" class="smooth-redirect" ></a>
+						            </figcaption>	
+                                </figure>
+                          </li> 
+                      </ul>
+	                        
+                      </div>
+             </div><!--close box content-->
+		  </div>
+      </div>
+
+      <div class="parallax2">
+        <div class="overlay-white">
+            <div class="container">
+              <div class="row">
+               <div class="col-md-12">
+               <div id="owl-demo" class="owl-carousel owl-theme">
+ 
+                  <div class="item">
+                            <div class="carousel-desc">
+                                <span class=" icon-anchor"></span>
+                                <h1>What people say</h1>
+                                <p>Shubham who joined Communications Domain Team from Turbo Batch in 2016, has been an excellent resource in the team who has excelled in all aspects of his work. Mentoring him for the past 12 months has been very enriching and satisfying </p>
+                                <p class="nm-name">- Manohar Venugopal P</p>
+                        </div>
+                    </div>
+                    <div class="item">
+                            <div class="carousel-desc">
+                            <span class=" icon-anchor"></span>
+                                <h1>What people say</h1>
+                                <p>Shubham did a fantastic job for Mobile reporting of Dashborads, which was shown to Airtel BI Head, Laurent Mignet. It was appreciated by him and a well deserved Pinnacle Award at Communications level.</p>
+                                <p class="nm-name">- Ankush Chadha</p>
+                            </div>
+                    </div>
+                    
+ 
+                </div>
+		      </div>
+          </div>
+        </div>
+       </div>
+      </div>
+	</section><!-- cd-section -->
+
+    
+    <script>
+        
+        $("#owl-demo").owlCarousel({
+
+            navigation: true, // Show next and prev buttons
+            slideSpeed: 300,
+            paginationSpeed: 400,
+            singleItem: true
+
+       
+
+        });
+    </script>
+    <script>
+        $('.albumFilter li').on("click", function () {
+            $('.albumFilter .current').removeClass('current');
+            $(this).addClass('current');
+        });
+    </script>
+
+    <script type="text/javascript">
+        
+//        $(document).ready(function () {
+        $(".smooth-redirect").on("click", function (event) {
+                event.preventDefault();
+                linkLocation = this.href;
+                $("body").fadeOut(1000, redirectPage);
+            });
+            function redirectPage() {
+                window.location = linkLocation;
+            }
+//        });
+   </script>
+    
